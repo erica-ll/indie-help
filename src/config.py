@@ -1,0 +1,15 @@
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+DB_PATH = Path(os.getenv("DB_PATH", REPO_ROOT.parent / "DB"))
+
+RAW_DIR = DB_PATH / "raw"
+EMBEDDINGS_DIR = DB_PATH / "embeddings"
+CHROMA_DIR = DB_PATH / "chroma"
+
+TESTS_DIR = REPO_ROOT / "tests"
