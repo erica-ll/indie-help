@@ -2,6 +2,7 @@ import json
 import fitz
 import tiktoken
 from openai import OpenAI
+from tqdm import tqdm
 
 from config import RAW_DIR, EMBEDDINGS_DIR
 
@@ -37,13 +38,12 @@ def embed_chunks(chunks, model="text-embedding-3-small", batch_size=100):
 
 
 if __name__ == "__main__":
-    for file_path in RAW_DIR.iterdir():
-        if file_path.suffix.lower() != ".pdf":
-            continue
+    pdf_files = sorted(p for p in RAW_DIR.iterdir() if p.suffix.lower() == ".pdf")
 
+    for file_path in tqdm(pdf_files, desc="Processing PDFs", unit="file"):
         out_path = EMBEDDINGS_DIR / f"{file_path.stem}.json"
         if out_path.exists():
-            continue  # 已经处理过，跳过，省 API 调用
+            continue 
 
         input_text = extract_text(file_path)
         chunks = chunk_text(input_text)

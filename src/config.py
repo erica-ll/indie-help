@@ -13,3 +13,4 @@ EMBEDDINGS_DIR = DB_PATH / "embeddings"
 CHROMA_DIR = DB_PATH / "chroma"
 
 TESTS_DIR = REPO_ROOT / "tests"
+PROMPTS_PATH = Path(__file__).resolve().parent / "prompts.yaml"

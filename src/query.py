@@ -1,12 +1,18 @@
 import re
 import chromadb
+import yaml
 from openai import OpenAI
 
-from config import CHROMA_DIR, TESTS_DIR
+from config import CHROMA_DIR, TESTS_DIR, PROMPTS_PATH
+
+ACTIVE_PROMPT_VERSION = "system_prompt_v1"
 
 client = OpenAI()
 chroma_client = chromadb.PersistentClient(path=str(CHROMA_DIR))
 collection = chroma_client.get_collection("postmortems")
+
+with open(PROMPTS_PATH) as f:
+    PROMPTS = yaml.safe_load(f)
 
 
 def ask(question, top_k=3):
@@ -22,15 +28,7 @@ def ask(question, top_k=3):
         context_blocks.append(f"[Source: {meta['source_file']}]\n{text}")
     context = "\n\n---\n\n".join(context_blocks)
 
-    system_prompt = """
-    You are a specialized AI oracle providing professional advice to indie game developers.
-    Your task is to answer developers' questions based ONLY on the provided context.
-
-    [CORE RULES]
-    1. You MUST answer the question completely based on the provided retrieved context snippets. You are strictly forbidden from using your pre-trained knowledge to hallucinate or invent answers.
-    2. If the provided context snippets do not contain sufficient information to answer the question, you MUST explicitly state: "Sorry, there is no specific record regarding this issue in the current knowledge base."
-    3. Every time you state a fact or opinion in your answer, you MUST append the citation source at the end of the sentence! The format must strictly follow: (Source: [source name provided in the snippet]).
-    """
+    system_prompt = PROMPTS[ACTIVE_PROMPT_VERSION]
     user_prompt = f"Retrieved Context:\n{context}\n\nQuestion: {question}"
 
     response = client.chat.completions.create(
