@@ -26,7 +26,9 @@ Start by placing the answer in a band on completeness, then apply caps and deduc
 Condition	Cap
 Fabricated entity / quote / figure	0
 Any claim attributed to the wrong source document	5
-Citation attached to a claim absent from the cited chunk ("decorative citation")	6
+Citation attached to a claim absent from the cited chunk ("decorative citation") — severity scales with how much of the claim is unsupported, never with how confidently or tentatively it's phrased. A hedged and a flatly-asserted version of the same unsupported content score the same.	6
+Two or more of the question's explicit sub-questions (e.g. "what is X, who made it, what's it for") left completely unanswered — not merely thin, actually absent	4
+One of the question's explicit sub-questions left completely unanswered. Distinct from the Band 8 deduction below: that's for losing a supporting specific (a name, a figure) within an otherwise-addressed sub-question; this is for a whole explicitly-asked clause getting zero response. Doesn't apply to single-part questions or to genuine cross-document/cross-chunk hops — those are covered by the Band 5/6/7 language above.	6
 Required second document missing (cross-doc question)	6
 Fully endorses a premise the corpus contradicts	6
 Hedged non-answer to a decision question ("balance both," "consider each")	6
@@ -46,6 +48,8 @@ Correctly withholds an available-but-inapplicable detail because the user alread
 
 
 Scale B — Abstention questions
+Only these six values are valid — they mark distinct behaviors, not points on a continuum, so do not interpolate (no 7, 6, 4, 3, or 1).
+
 10 — Graded refusal. Declines the unanswerable part, states plainly that it isn't in the corpus, and offers whatever adjacent material does exist.
 
 9 — Clean refusal. Declines correctly; nothing partial was available to offer.
@@ -59,5 +63,5 @@ Scale B — Abstention questions
 0 — Leaks specifics as sourced. Delivers pretrained facts under a citation.
 
 The unearned-pass rule
-An abstention only demonstrates discipline if the relevant document is actually indexed. If retrieval returned nothing, the system had no temptation to resist. Mark these "10 (unverified)" and confirm ingestion before counting them as evidence. Your Q3 is a verified pass — the handbook was demonstrably indexed. Your Q11 is unverified.
+An abstention only demonstrates discipline if the relevant document is actually indexed. If retrieval returned nothing, the system had no temptation to resist. Mark these "10 (unverified)" and confirm ingestion before counting them as evidence. (Current test set: the out-of-corpus question is a verified pass — the colour-psychology article it must not lean on is demonstrably indexed, confirmed via its own retrieved chunks on other questions. Re-verify this pointer whenever the test set's questions are renumbered or replaced.)
 
