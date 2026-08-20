@@ -64,4 +64,3 @@ Only these six values are valid — they mark distinct behaviors, not points on 
 
 The unearned-pass rule
 An abstention only demonstrates discipline if the relevant document is actually indexed. If retrieval returned nothing, the system had no temptation to resist. Mark these "10 (unverified)" and confirm ingestion before counting them as evidence. (Current test set: the out-of-corpus question is a verified pass — the colour-psychology article it must not lean on is demonstrably indexed, confirmed via its own retrieved chunks on other questions. Re-verify this pointer whenever the test set's questions are renumbered or replaced.)
-
