@@ -1,0 +1,104 @@
+{
+  "1": {
+    "question": "Where did the developers find the 3D models and textures for the computer in The Roottrees Are Dead?",
+    "sub_queries": [
+      "Source of 3D models and textures for the computer in The Roottrees Are Dead"
+    ]
+  },
+  "2": {
+    "question": "What is \"Game Balance Guru,\" who made it, and what is it used for?",
+    "sub_queries": [
+      "What is Game Balance Guru?",
+      "Who developed Game Balance Guru?",
+      "Common use cases for Game Balance Guru"
+    ]
+  },
+  "3": {
+    "question": "Who is Alex Karpenko",
+    "sub_queries": [
+      "Alex Karpenko biography and background"
+    ]
+  },
+  "4": {
+    "question": "my gold economy is completely broken, players have millions by mid-game and nothing to spend it on. is there an actual tool where I can model faucets and sinks and simulate it before I patch, instead of just guessing in a spreadsheet? swear I saw a browser thing designers use for this",
+    "sub_queries": [
+      "tools for modeling in-game economies with faucets and sinks",
+      "browser-based simulation tools for game economy design"
+    ]
+  },
+  "5": {
+    "question": "we're hybrid monetized (rewarded ads + IAP) and our stage 12 boss is a wall — roughly 5-6% of players drop there. Design wants to keep it hard because \"frustration sells continues,\" but our rewarded ad eCPM/completion around that stage looks awful too. do I actually lose money keeping the spike, or am I overthinking it?",
+    "sub_queries": [
+      "Impact of high difficulty spikes on player retention and monetization in hybrid monetization models",
+      "Analysis of eCPM and completion rates for rewarded ads in relation to player drop-off at stage 12 boss",
+      "Do difficult game stages negatively affect revenue from in-app purchases?"
+    ]
+  },
+  "6": {
+    "question": "publisher just came back with notes and they want daily login streaks, a battle pass and push notifications because \"we're competing with TikTok for the same 20 minutes.\" we're a 6-person team making a story-driven RPG and this feels like it'll wreck the thing we're actually good at. is there a real argument against this or am I just being precious about my art",
+    "sub_queries": [
+      "Arguments against implementing daily login streaks in story-driven RPGs",
+      "Critiques of battle pass systems in narrative-focused games",
+      "Impact of push notifications on player engagement in story-driven RPGs"
+    ]
+  },
+  "7": {
+    "question": "genuinely confused by the discourse right now. half my feed says the attention war is already lost and chasing it is a mug's game, the other half says you win it with better writing. those can't both be true? trying to figure out what to actually put on the roadmap this quarter",
+    "sub_queries": [
+      "Is the attention war in content creation already lost?",
+      "What strategies can improve writing to win the attention war?"
+    ]
+  },
+  "8": {
+    "question": "does blue actually work for a mystery game or is it a cliché at this point? our whole first act leans heavily on blue and my art lead thinks it'll read as cold and push players away. anyone have real reasoning on this rather than vibes",
+    "sub_queries": [
+      "Does the color blue effectively enhance player engagement in mystery games?",
+      "What are the psychological effects of using blue in game design, particularly in mystery genres?",
+      "Are there critiques or arguments against using blue as a dominant color in mystery game aesthetics?"
+    ]
+  },
+  "9": {
+    "question": "I’m working on a quiet exploration game about a family estate and I want it to feel melancholy without being oppressive. how do people actually get tone right — is there a method or is it just taste?",
+    "sub_queries": [
+      "Methods for achieving a melancholic tone in game design",
+      "Best practices for balancing emotional tone in narrative-driven games"
+    ]
+  },
+  "10": {
+    "question": "publisher call went badly. they want us to commit to a genre lane before we finish vertical slice because it \"drives the whole marketing plan,\" but our game is a weird hybrid and honestly I don't know what it is yet. do I force a label now and design toward it, or ship the thing I actually want and let it be whatever it ends up being? feels like a real risk either way",
+    "sub_queries": [
+      "Should I commit to a specific genre for my game before completing the vertical slice?",
+      "What are the risks of labeling a hybrid game genre early in development?",
+      "How can I balance creative vision with marketing requirements in game development?"
+    ]
+  },
+  "11": {
+    "question": "benchmarking our between-runs upgrade tree and Hades is the obvious reference point. how does Supergiant's meta-progression actually break down — how many separate currencies, can you respec the upgrade board freely, and roughly how many runs in does a player start feeling the power curve? need concrete numbers to sanity check ours against",
+    "sub_queries": [
+      "Breakdown of meta-progression in Hades",
+      "Number of separate currencies used in Hades",
+      "Can players respec the upgrade board freely in Hades?",
+      "At what point do players start feeling the power curve in Hades?"
+    ]
+  },
+  "12": {
+    "question": "I’ve developing an RPG. How does the color theory in Disco Elysium help to narrate the story?",
+    "sub_queries": [
+      "How does color theory in Disco Elysium contribute to storytelling?"
+    ]
+  },
+  "13": {
+    "question": "need visual reference for a street football / pickup-sports game and every image search gives me stock photos of stadiums. Is there a photography book that documents people playing football in normal community spaces all over the world, dirt lots and alleys and whatever.",
+    "sub_queries": [
+      "Photography books documenting street football and pickup sports in community spaces worldwide"
+    ]
+  },
+  "14": {
+    "question": "I want to make a game on Norse mythology, which is part of my culture as a Norwegian. But I’m afraid that the audience will not buy it for it being so niche. Should I proceed? What should I know before I start?",
+    "sub_queries": [
+      "Considerations for developing a game based on Norse mythology",
+      "Market analysis for niche games focused on cultural themes",
+      "Key elements to research before creating a game on Norse mythology"
+    ]
+  }
+}

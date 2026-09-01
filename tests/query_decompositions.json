@@ -1,0 +1,115 @@
+{
+  "1": {
+    "question": "Where did the developers find the 3D models and textures for the computer in The Roottrees Are Dead?",
+    "sub_queries": [
+      "sources of 3D models for The Roottrees Are Dead",
+      "texture resources used in The Roottrees Are Dead",
+      "development process for 3D assets in The Roottrees Are Dead"
+    ]
+  },
+  "2": {
+    "question": "What is \"Game Balance Guru,\" who made it, and what is it used for?",
+    "sub_queries": [
+      "What is Game Balance Guru?",
+      "Who developed Game Balance Guru?",
+      "What is the purpose of Game Balance Guru?"
+    ]
+  },
+  "3": {
+    "question": "Who is Alex Karpenko",
+    "sub_queries": [
+      "Who is Alex Karpenko?",
+      "Biography of Alex Karpenko",
+      "Contributions of Alex Karpenko in technology"
+    ]
+  },
+  "4": {
+    "question": "my gold economy is completely broken, players have millions by mid-game and nothing to spend it on. is there an actual tool where I can model faucets and sinks and simulate it before I patch, instead of just guessing in a spreadsheet? swear I saw a browser thing designers use for this",
+    "sub_queries": [
+      "tools for modeling in-game economies, including faucets and sinks",
+      "simulation software for testing game economy balance",
+      "browser-based tools for game designers to analyze economic systems"
+    ]
+  },
+  "5": {
+    "question": "we're hybrid monetized (rewarded ads + IAP) and our stage 12 boss is a wall — roughly 5-6% of players drop there. Design wants to keep it hard because \"frustration sells continues,\" but our rewarded ad eCPM/completion around that stage looks awful too. do I actually lose money keeping the spike, or am I overthinking it?",
+    "sub_queries": [
+      "Impact of high difficulty levels on player retention and monetization in hybrid monetization models",
+      "Analysis of eCPM performance in relation to player drop-off rates at stage 12 boss",
+      "Balancing game difficulty and monetization strategies: risks and benefits of maintaining high challenge levels"
+    ]
+  },
+  "6": {
+    "question": "publisher just came back with notes and they want daily login streaks, a battle pass and push notifications because \"we're competing with TikTok for the same 20 minutes.\" we're a 6-person team making a story-driven RPG and this feels like it'll wreck the thing we're actually good at. is there a real argument against this or am I just being precious about my art",
+    "sub_queries": [
+      "arguments against implementing daily login streaks in story-driven RPGs",
+      "impact of battle pass systems on narrative-focused game design",
+      "disadvantages of push notifications in immersive gaming experiences"
+    ]
+  },
+  "7": {
+    "question": "genuinely confused by the discourse right now. half my feed says the attention war is already lost and chasing it is a mug's game, the other half says you win it with better writing. those can't both be true? trying to figure out what to actually put on the roadmap this quarter",
+    "sub_queries": [
+      "Analysis of the current discourse on the attention economy",
+      "Arguments for and against the effectiveness of writing in capturing audience attention",
+      "Strategies for prioritizing content development in response to attention economy trends"
+    ]
+  },
+  "8": {
+    "question": "does blue actually work for a mystery game or is it a cliché at this point? our whole first act leans heavily on blue and my art lead thinks it'll read as cold and push players away. anyone have real reasoning on this rather than vibes",
+    "sub_queries": [
+      "Effectiveness of blue color schemes in mystery game design",
+      "Impact of color choices on player engagement in video games",
+      "Critiques of using blue as a primary color in narrative-driven games"
+    ]
+  },
+  "9": {
+    "question": "I’m working on a quiet exploration game about a family estate and I want it to feel melancholy without being oppressive. how do people actually get tone right — is there a method or is it just taste?",
+    "sub_queries": [
+      "methods for achieving a melancholic tone in video game design",
+      "techniques for balancing emotional tone in narrative-driven games",
+      "the role of aesthetic choices in establishing mood in exploration games"
+    ]
+  },
+  "10": {
+    "question": "publisher call went badly. they want us to commit to a genre lane before we finish vertical slice because it \"drives the whole marketing plan,\" but our game is a weird hybrid and honestly I don't know what it is yet. do I force a label now and design toward it, or ship the thing I actually want and let it be whatever it ends up being? feels like a real risk either way",
+    "sub_queries": [
+      "impact of genre classification on game marketing strategies",
+      "risks of committing to a specific genre before game completion",
+      "benefits of maintaining flexibility in game design and genre definition"
+    ]
+  },
+  "11": {
+    "question": "benchmarking our between-runs upgrade tree and Hades is the obvious reference point. how does Supergiant's meta-progression actually break down — how many separate currencies, can you respec the upgrade board freely, and roughly how many runs in does a player start feeling the power curve? need concrete numbers to sanity check ours against",
+    "sub_queries": [
+      "Supergiant Games Hades meta-progression breakdown",
+      "Hades upgrade currencies and their functions",
+      "Hades respec options for the upgrade board",
+      "Hades power curve progression and run count"
+    ]
+  },
+  "12": {
+    "question": "I’ve developing an RPG. How does the color theory in Disco Elysium help to narrate the story?",
+    "sub_queries": [
+      "color theory in Disco Elysium and its impact on narrative structure",
+      "use of color symbolism in Disco Elysium for storytelling",
+      "how color palettes influence character development in Disco Elysium"
+    ]
+  },
+  "13": {
+    "question": "need visual reference for a street football / pickup-sports game and every image search gives me stock photos of stadiums. Is there a photography book that documents people playing football in normal community spaces all over the world, dirt lots and alleys and whatever.",
+    "sub_queries": [
+      "photography books documenting street football and pickup sports",
+      "visual references for community football games in non-stadium settings",
+      "photography of informal football games in urban environments"
+    ]
+  },
+  "14": {
+    "question": "I want to make a game on Norse mythology, which is part of my culture as a Norwegian. But I’m afraid that the audience will not buy it for it being so niche. Should I proceed? What should I know before I start?",
+    "sub_queries": [
+      "market analysis for games based on Norse mythology",
+      "challenges of developing niche cultural games",
+      "key considerations for creating a game inspired by Norse mythology"
+    ]
+  }
+}
