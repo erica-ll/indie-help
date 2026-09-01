@@ -5,4 +5,7 @@ __pycache__/
 
 # Local experiment-log snapshots from prompt-iteration sessions (0.0/, 1.0/, 2.3/, etc.)
 # Keep tests/test_prompts.txt, tests/answers.txt, tests/rubric.txt tracked — just not the archive folders.
+# tests/tryouts/ is live code (architectures A/B/C2), not an archive snapshot -- keep it tracked.
 tests/*/
+tests/*
+!tests/tryouts/
