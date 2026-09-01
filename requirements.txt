@@ -1,3 +1,7 @@
 chromadb
 openai
-dotenv
+python-dotenv
+tqdm
+pyyaml
+bm25s
+cohere

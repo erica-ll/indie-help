@@ -1,3 +1,8 @@
 .env
 __pycache__/
 *.pyc
+.DS_Store
+
+# Local experiment-log snapshots from prompt-iteration sessions (0.0/, 1.0/, 2.3/, etc.)
+# Keep tests/test_prompts.txt, tests/answers.txt, tests/rubric.txt tracked — just not the archive folders.
+tests/*/

@@ -1,0 +1,190 @@
+===== Q1 =====
+Question: Where did the developers find the 3D models and textures for the computer in The Roottrees Are Dead?
+Answer:
+<scratchpad>
+- Source [Building The Roottrees are Dead | Evil Trout Inc..pdf]: "For the “Living Room” interface that you can explore in 3D, I made almost all the assets myself in Blender." and "The textures in the game are all painted in Substance Painter, which at CAD $25.99/mo is the single most expensive piece of software I use."
+- Source [Building The Roottrees are Dead | Evil Trout Inc..pdf]: Not relevant
+- Source [Building The Roottrees are Dead | Evil Trout Inc..pdf]: Not relevant
+- Source [Building The Roottrees are Dead | Evil Trout Inc..pdf]: Not relevant
+- Source [Building The Roottrees are Dead | Evil Trout Inc..pdf]: Not relevant
+- Source [Building The Roottrees are Dead | Evil Trout Inc..pdf]: Not relevant
+- Source [Building The Roottrees are Dead | Evil Trout Inc..pdf]: Not relevant
+- Source [Building The Roottrees are Dead | Evil Trout Inc..pdf]: Not relevant
+- Classification: A
+</scratchpad>
+The developers created almost all the 3D models for the "Living Room" interface themselves using Blender. Additionally, they painted all the textures in Substance Painter, which costs CAD $25.99 per month (Source: Building The Roottrees are Dead | Evil Trout Inc.).
+
+===== Q2 =====
+Question: What is "Game Balance Guru," who made it, and what is it used for?
+Answer:
+<scratchpad>
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Game Balance Guru is a bot created to streamline work on game balance and economy. It helps with game balancing, economy analysis, feature and mechanic balancing, in-game resource pricing calculations, LiveOps event reports and recommendations, and player behavior prediction using statistical models. It is designed to accelerate complex balancing tasks and is available for free (Source: Featured Blog | I designed economies for $150M games—here's my ultimate handbook).
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Classification: A
+</scratchpad>
+Game Balance Guru is a bot created to streamline work on game balance and economy. It assists with tasks such as game balancing, economy analysis, feature and mechanic balancing, in-game resource pricing calculations, LiveOps event reports and recommendations, and player behavior prediction using statistical models. The tool is designed to accelerate complex balancing tasks and is available for free (Source: Featured Blog | I designed economies for $150M games—here's my ultimate handbook).
+
+===== Q3 =====
+Question: Who is Alex Karpenko
+Answer:
+<scratchpad>
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: "My name is Alex Karpenko. Having worked in game development for over 5 years, designing the economy and balance for projects that generated more than $150M in revenue, I will share with developers how to create an economy for your project so that it thrives and earns."
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: "Alex Wiserax is on the line. After working in game development for over 5 years—designing the economy and balance for projects that have generated over $150 million in revenue — I decided to disappear for the last six months to consolidate all my knowledge in game economy, balancing, and monetization into one work and share it with other developers."
+- Classification: A
+</scratchpad>
+Alex Karpenko is a game developer who has worked in the industry for over 5 years, focusing on designing the economy and balance for projects that have generated more than $150 million in revenue (Source: Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf).
+
+===== Q4 =====
+Question: my gold economy is completely broken, players have millions by mid-game and nothing to spend it on. is there an actual tool where I can model faucets and sinks and simulate it before I patch, instead of just guessing in a spreadsheet? swear I saw a browser thing designers use for this
+Answer:
+<scratchpad>
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Game Balance Guru is your personal assistant ready to tackle any challenge related to game balancing, economy, or monetization. It’s important to remember that while Game Balance Guru is a powerful tool, it works best in tandem with you as a designer. It’s not a replacement for expertise or intuition but rather a way to significantly reduce routine work and speed up decision-making.
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: You can create a similar flowchart for all of your game’s mechanics, linking them into a single ecosystem to understand how introducing a new mechanic will impact the economy of your project. Tools like Machinations.io, Miro, or classic GS/Excel tables can be used to build such flowcharts.
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Classification: A
+</scratchpad>
+You can use tools like Game Balance Guru and Machinations.io to model and simulate your game's economy before making changes. Game Balance Guru is an assistant that helps with game balancing and economic analysis tasks, though it should be used alongside your own expertise (Source: Featured Blog | I designed economies for $150M games—here's my ultimate handbook). Additionally, Machinations.io allows you to create flowcharts of your game's mechanics and link them into a single ecosystem to understand the impact of new mechanics on the economy (Source: Featured Blog | I designed economies for $150M games—here's my ultimate handbook).
+
+===== Q5 =====
+Question: we're hybrid monetized (rewarded ads + IAP) and our stage 12 boss is a wall — roughly 5-6% of players drop there. Design wants to keep it hard because "frustration sells continues," but our rewarded ad eCPM/completion around that stage looks awful too. do I actually lose money keeping the spike, or am I overthinking it?
+Answer:
+<scratchpad>
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: "Higher mission difficulty → Players spend more, but it’s also true that higher mission difficulty → More players quit and uninstall the game. Some game economy designers say that no more than 4% of players should quit due to mission difficulty; I aim for this number when designing mission difficulty in mobile projects." 
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: "Game Difficulty and Advertising: A study conducted by Dardis et al. (2019) found that game difficulty can provoke negative emotional reactions in players, which, in turn, reduces the effectiveness of advertising."
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: "In mobile gaming, around 60% of revenue typically comes from such missions. In games I’ve worked on, I’ve seen players spend thousands of dollars to clear paywalls."
+- Classification: A
+</scratchpad>
+
+The current situation with your stage 12 boss aligns with several insights from the handbook. Firstly, while higher mission difficulty can lead to increased spending as players may purchase continues or other aids to progress, it also results in a higher dropout rate. Ideally, no more than 4% of players should quit due to mission difficulty (Source: Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf). Your current dropout rate of 5-6% exceeds this guideline, suggesting potential revenue loss from player churn.
+
+Additionally, increased game difficulty can negatively impact the effectiveness of advertising. A study found that difficult levels provoke negative emotional reactions in players, reducing ad effectiveness (Source: Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf). This could explain why your rewarded ad eCPM/completion is poor around this stage.
+
+While maintaining a challenging level might drive some purchases, it's crucial to balance this against potential losses from both player drop-off and reduced ad revenue. You may need to consider adjusting the level's difficulty or exploring other monetization strategies to optimize both player retention and revenue (Source: Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf).
+
+===== Q6 =====
+Question: publisher just came back with notes and they want daily login streaks, a battle pass and push notifications because "we're competing with TikTok for the same 20 minutes." we're a 6-person team making a story-driven RPG and this feels like it'll wreck the thing we're actually good at. is there a real argument against this or am I just being precious about my art
+Answer:
+<scratchpad>
+- Source [Video games shouldn't try to win the 'attention war'.pdf]: "Video games shouldn't compete to psychologically abuse people" and "Games promise an escape. Gambling promises to change your life" suggest that competing with platforms like TikTok using exploitative retention techniques is not advisable.
+- Source [How can your game win the 'attention war?' Turn to storytelling.pdf]: "You can't out-exploit exploitative platforms" and "strong storytelling—backed by strong systems—can keep players focused" argue for focusing on storytelling rather than adopting exploitative techniques.
+- Classification: A
+</scratchpad>
+There is a strong argument against implementing daily login streaks, battle passes, and push notifications in your story-driven RPG. Competing with platforms like TikTok using exploitative retention techniques is not advisable, as video games should not aim to psychologically manipulate users (Source: Video games shouldn't try to win the 'attention war'.pdf). Instead, focusing on strong storytelling backed by robust systems can effectively keep players engaged without resorting to such tactics (Source: How can your game win the 'attention war?' Turn to storytelling.pdf).
+
+===== Q7 =====
+Question: genuinely confused by the discourse right now. half my feed says the attention war is already lost and chasing it is a mug's game, the other half says you win it with better writing. those can't both be true? trying to figure out what to actually put on the roadmap this quarter
+Answer:
+<scratchpad>
+- Source [How can your game win the 'attention war?' Turn to storytelling.pdf]: Recent research indicates that players are in an overloaded information environment and become easily distracted from games. Writers Alexa Ray Corriea and Adam Dolin argue that strong storytelling—backed by strong systems—can keep players focused.
+- Source [Video games shouldn't try to win the 'attention war'.pdf]: Video game investors fret that games face stiff competition from gambling apps, prediction markets, and AI assistants. But devs and investors who value a stable games business shouldn't try to outperform those markets.
+- Classification: A
+</scratchpad>
+
+There is a debate in the industry about whether video games should compete in the "attention war." On one hand, writers like Alexa Ray Corriea and Adam Dolin suggest that strong storytelling, supported by robust systems, can help keep players engaged despite the distractions of an overloaded information environment (Source: How can your game win the 'attention war?' Turn to storytelling.pdf). On the other hand, some argue that trying to compete with other attention-grabbing platforms like gambling apps or AI assistants is not a sustainable strategy for a stable games business (Source: Video games shouldn't try to win the 'attention war'.pdf). Therefore, while better writing can be a tool for engagement, it may not be wise to focus solely on winning an "attention war" against these other platforms.
+
+===== Q8 =====
+Question: does blue actually work for a mystery game or is it a cliché at this point? our whole first act leans heavily on blue and my art lead thinks it'll read as cold and push players away. anyone have real reasoning on this rather than vibes
+Answer:
+<scratchpad>
+- Source [The utilize of Color Psychology in game graphics designs.pdf]: "The impression colors give to people is quick, profound, and lasting, which also determines what kind of first impression many things give to people." AND "In game design process, color is also a direct and powerful way to evoke players' emotions."
+- Source [Blue Prince's somber tone was inspired by Myst, says creator.pdf]: "The atmosphere was poetically calm, but there's a rich history there," he explained. "It's the environmental storytelling of a past that is just out of the player's reach—and yet there is such meaning behind this world."
+- Classification: A
+</scratchpad>
+Blue can be effectively used in a mystery game setting. It has been noted that colors have a profound impact on first impressions and can evoke specific emotions in players (Source: The utilize of Color Psychology in game graphics designs.pdf). In the case of the game Blue Prince, blue was used to create a somber and calm atmosphere that contributed to the environmental storytelling and added depth to the game's narrative (Source: Blue Prince's somber tone was inspired by Myst, says creator.pdf). Therefore, using blue in your mystery game could enhance the mood and support your storytelling goals rather than push players away.
+
+===== Q9 =====
+Question: I’m working on a quiet exploration game about a family estate and I want it to feel melancholy without being oppressive. how do people actually get tone right — is there a method or is it just taste?
+Answer:
+<scratchpad>
+- Source [Blue Prince's somber tone was inspired by Myst, says creator.pdf]: "The intricate puzzle design of Dogubomb's Blue Prince made it one of the most celebrated games of 2025... The mysteries at the heart of the mansion played an important role... It's a tale pieced together through notes, photographs, letters, and a quiet-yet-unsettling score from composers Trigg & Gusset." AND "Ros explained that the inspiration for Blue Prince's tone was none other than the classic adventure game Myst, by Cyan Games. 'The atmosphere was poetically calm, but there's a rich history there,' he explained."
+- Source [The utilize of Color Psychology in game graphics designs.pdf]: "In game design process, color is also a direct and powerful way to evoke players' emotions... yellow usually represents 'fun' in the minds, while red usually means 'anger'."
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+- Source [How kicking a ball around drove authenticity in Despelote.pdf]: Not relevant
+- Source [How can your game win the 'attention war?' Turn to storytelling.pdf]: Not relevant
+- Source [Featured Blog | The Upside of Using Culture and Personal Stories as Game Pillars.pdf]: Not relevant
+- Classification: A
+</scratchpad>
+
+To create a melancholy yet not oppressive tone in your exploration game about a family estate, you can draw inspiration from successful examples like Dogubomb's Blue Prince. This game achieved its somber atmosphere through intricate puzzle design and environmental storytelling. The narrative was conveyed through notes, photographs, letters, and an unsettling musical score. The creator took inspiration from Myst by Cyan Games, which is known for its poetically calm atmosphere with rich history (Source: Blue Prince's somber tone was inspired by Myst, says creator).
+
+Additionally, consider using color psychology to evoke specific emotions. In game design, colors can powerfully influence players' emotions; for example, yellow often represents fun while red can signify anger. Carefully selecting your color palette can help maintain the desired emotional tone without overwhelming players (Source: The utilize of Color Psychology in game graphics designs).
+
+===== Q10 =====
+Question: publisher call went badly. they want us to commit to a genre lane before we finish vertical slice because it "drives the whole marketing plan," but our game is a weird hybrid and honestly I don't know what it is yet. do I force a label now and design toward it, or ship the thing I actually want and let it be whatever it ends up being? feels like a real risk either way
+Answer:
+<scratchpad>
+- Source [Silksong has ruined your launch plans. Now what?.pdf]: "We discussed that while they're not the same genre, it's important to take into account your audience and the kind of people that like to play your games—players, creators, press."
+- Source [Featured Blog | The Upside of Using Culture and Personal Stories as Game Pillars.pdf]: "Embrace the “risk” that the final product will only appeal to a “niche market”."
+- Source [Hades devs: accidentally inventing a subgenre was 'surreal'.pdf]: "We just made the decisions that felt right and natural to us."
+- Classification: A
+</scratchpad>
+
+It seems you are facing a dilemma similar to what other developers have encountered. In situations where a game doesn't fit neatly into an existing genre, it can be beneficial to focus on creating something unique and authentic rather than forcing it into a predefined category. As seen with Supergiant Games' approach with Hades, they made decisions that felt right and natural without trying to fit into a specific genre from the outset (Source: Hades devs: accidentally inventing a subgenre was 'surreal'). Additionally, embracing the risk of appealing to a niche market can be advantageous if it means staying true to your vision (Source: Featured Blog | The Upside of Using Culture and Personal Stories as Game Pillars). Ultimately, understanding your audience and their preferences can guide you in making these decisions (Source: Silksong has ruined your launch plans. Now what?).
+
+===== Q11 =====
+Question: benchmarking our between-runs upgrade tree and Hades is the obvious reference point. how does Supergiant's meta-progression actually break down — how many separate currencies, can you respec the upgrade board freely, and roughly how many runs in does a player start feeling the power curve? need concrete numbers to sanity check ours against
+Answer:
+<scratchpad>
+- Source [Hades devs: accidentally inventing a subgenre was 'surreal'.pdf]: "Not relevant"
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: "Not relevant"
+- Classification: C
+</scratchpad>
+Sorry, there is no specific record regarding this issue in the current knowledge base.
+
+===== Q12 =====
+Question: I’ve developing an RPG. How does the color theory in Disco Elysium help to narrate the story?
+Answer:
+<scratchpad>
+- Source [The utilize of Color Psychology in game graphics designs.pdf]: "The three key elements of color are hue (i.e. color tone), lightness, and saturation (i.e. colorfulness). In addition to selecting different combinations of hues, color relationships can be further emphasized by adjusting the lightness and saturation of colors."
+- Source [The utilize of Color Psychology in game graphics designs.pdf]: "In game design process, color is also a direct and powerful way to evoke players' emotions."
+- Source [How can your game win the 'attention war?' Turn to storytelling.pdf]: "If you need other examples of well-presented writing, you might consider the 'Active Time Lore' system from Square Enix's Final Fantasy XVI or the notification-inspired user interface of Disco Elysium (both reused excellently in Christoffer Bodegård's Esoteric Ebb)."
+- Source [Blue Prince's somber tone was inspired by Myst, says creator.pdf]: Not relevant
+- Source [Featured Blog | The Upside of Using Culture and Personal Stories as Game Pillars.pdf]: Not relevant
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: Not relevant
+Classification: A
+</scratchpad>
+Disco Elysium uses a notification-inspired user interface that contributes to its storytelling by engaging players through its unique presentation style (Source: How can your game win the 'attention war?' Turn to storytelling). Additionally, in general game design, color is a powerful tool for evoking emotions and enhancing narrative through elements like hue, lightness, and saturation (Source: The utilize of Color Psychology in game graphics designs).
+
+===== Q13 =====
+Question: need visual reference for a street football / pickup-sports game and every image search gives me stock photos of stadiums. Is there a photography book that documents people playing football in normal community spaces all over the world, dirt lots and alleys and whatever.
+Answer:
+<scratchpad>
+- Source [How kicking a ball around drove authenticity in Despelote.pdf]: "Cordero was inspired by a picture book called Magnum Football, which his grandmother gave him in his youth. The book showed football being played by people from around the globe, kicking a football in various areas of their communities, often where there were no fields to play on."
+- Source [The utilize of Color Psychology in game graphics designs.pdf]: "Not relevant"
+- Source [Featured Blog | I designed economies for $150M games—here's my ultimate handbook.pdf]: "Not relevant"
+- Source [Featured Blog | The Upside of Using Culture and Personal Stories as Game Pillars.pdf]: "Not relevant"
+- Source [Building The Roottrees are Dead | Evil Trout Inc..pdf]: "Not relevant"
+- Classification: A
+</scratchpad>
+You can refer to the picture book called "Magnum Football," which documents people playing football in various community spaces around the world, including dirt lots and alleys (Source: How kicking a ball around drove authenticity in Despelote.pdf).
+
+===== Q14 =====
+Question: I want to make a game on Norse mythology, which is part of my culture as a Norwegian. But I’m afraid that the audience will not buy it for it being so niche. Should I proceed? What should I know before I start?
+Answer:
+<scratchpad>
+- Source [Featured Blog | The Upside of Using Culture and Personal Stories as Game Pillars.pdf]: "Embrace the “risk” that the final product will only appeal to a “niche market”. This really depends on the definition of “niche market”. If the game’s target audience was, say, Chinese people who only live in South Africa, that’s an example of “too niche”. Because Rooster has so many westernized Canadian-Asians on the team, we’re already pre-vetting game elements for being too specific because we’re all different kinds of Asian (e.g. Chinese, Cambodian, Burmese, Korean, etc.). This helps because on a cultural level, the superficial appeal is really to the East Asian global diaspora (also because the Chinese market in China proper is incredibly prohibitive). On a games level, the appeal is to cozy gamers, anyone who would appreciate the gorgeous Chinese brush style aesthetic, and gamers who love short, indie games with a plethora of delightful surprises."
+- Source [Featured Blog | The Upside of Using Culture and Personal Stories as Game Pillars.pdf]: "It’s also … well, lazy, to label anything with protagonists of colour as only marketable to a narrow demographic. Look at Beef and Everything Everywhere All At Once picking up the highest mainstream awards. Look at Korean drama taking over Netflix and sold out Blackpink concerts. “Niche” in the US market is but a small fraction of the global population and worldwide market."
+- Source [How can your game win the 'attention war?' Turn to storytelling.pdf]: "Players want complex stories... Exposure to opposing viewpoints decreases hostility. People can handle complexity."
+- Classification: A
+</scratchpad>
+
+When considering developing a game based on Norse mythology as part of your Norwegian culture, it's important to embrace any perceived risk associated with targeting what might seem like a niche market. The concept of "niche" can be misleading; while it might appear limited within certain demographics or regions (e.g., targeting only Norwegians), cultural themes often have broader appeal globally (Source: Featured Blog | The Upside of Using Culture and Personal Stories as Game Pillars).
+
+Moreover, labeling culturally rich content as niche overlooks its potential universal appeal. Successful examples from other media show that culturally specific stories can achieve mainstream success worldwide (Source: Featured Blog | The Upside of Using Culture and Personal Stories as Game Pillars).
+
+Additionally, players are interested in complex narratives that offer new perspectives. Games that present diverse viewpoints can engage audiences by reducing hostility towards unfamiliar content and fostering understanding (Source: How can your game win the 'attention war?' Turn to storytelling).
+
+Therefore, you should proceed with your project while considering these insights about cultural representation and audience engagement.
+
