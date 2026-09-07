@@ -11,6 +11,8 @@ EMBEDDINGS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def extract_text(file_path):
+    if file_path.suffix.lower() == ".txt":
+        return file_path.read_text()
     doc = fitz.open(file_path)
     return "\n".join(page.get_text() for page in doc)
 
@@ -38,9 +40,9 @@ def embed_chunks(chunks, model="text-embedding-3-small", batch_size=100):
 
 
 if __name__ == "__main__":
-    pdf_files = sorted(p for p in RAW_DIR.iterdir() if p.suffix.lower() == ".pdf")
+    source_files = sorted(p for p in RAW_DIR.iterdir() if p.suffix.lower() in (".pdf", ".txt"))
 
-    for file_path in tqdm(pdf_files, desc="Processing PDFs", unit="file"):
+    for file_path in tqdm(source_files, desc="Processing documents", unit="file"):
         out_path = EMBEDDINGS_DIR / f"{file_path.stem}.json"
         if out_path.exists():
             continue 

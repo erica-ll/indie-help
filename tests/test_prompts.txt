@@ -1,7 +1,7 @@
 1. Where did the developers find the 3D models and textures for the computer in The Roottrees Are Dead?
 2. What is "Game Balance Guru," who made it, and what is it used for?
 3. Who is Alex Karpenko
-4. my gold economy is completely broken, players have millions by mid-game and nothing to spend it on. is there an actual tool where I can model faucets and sinks and simulate it before I patch, instead of just guessing in a spreadsheet? swear I saw a browser thing designers use for this
+4. my gold economy is completely broken, players have millions by mid-game and nothing to spend it on. instead of just eyeballing it in a spreadsheet, is there an actual tool built for visually diagramming out where a resource comes from and where it drains to, so I can simulate the whole flow before I patch?
 5. we're hybrid monetized (rewarded ads + IAP) and our stage 12 boss is a wall — roughly 5-6% of players drop there. Design wants to keep it hard because "frustration sells continues," but our rewarded ad eCPM/completion around that stage looks awful too. do I actually lose money keeping the spike, or am I overthinking it?
 6. publisher just came back with notes and they want daily login streaks, a battle pass and push notifications because "we're competing with TikTok for the same 20 minutes." we're a 6-person team making a story-driven RPG and this feels like it'll wreck the thing we're actually good at. is there a real argument against this or am I just being precious about my art
 7. genuinely confused by the discourse right now. half my feed says the attention war is already lost and chasing it is a mug's game, the other half says you win it with better writing. those can't both be true? trying to figure out what to actually put on the roadmap this quarter
@@ -12,3 +12,16 @@
 12. I’ve developing an RPG. How does the color theory in Disco Elysium help to narrate the story?
 13. need visual reference for a street football / pickup-sports game and every image search gives me stock photos of stadiums. Is there a photography book that documents people playing football in normal community spaces all over the world, dirt lots and alleys and whatever.
 14. I want to make a game on Norse mythology, which is part of my culture as a Norwegian. But I’m afraid that the audience will not buy it for it being so niche. Should I proceed? What should I know before I start?
+15. I'm trying to remember the name of an indie game — turn-based combat, a queer brown protagonist confronting her exes in a small Washington town, cooking with her parents to repair their relationship, and skating is part of it somehow. What's it called?
+16. How big was the founding team on the game Falcon Age, and how big has that studio grown to since?
+17. Our studio's been dealing with a lot of burnout and instability lately. If we just get better at how we lead and communicate internally, will that actually fix it?
+18. How do you use random jitter to avoid artifacts from lighting?
+19. My ray marched light effect looks really noisy. Is there an actual known technique for fixing that, instead of just cranking up the step count?
+20. Is there a free tool I can use to test my game for photosensitivity/seizure risk before I ship it?
+21. My game has spider-like enemies but I want it to still be playable for people with arachnophobia. Is there a real example of how another game handled this?
+22. How long should an animation demo reel actually be? I keep hearing different advice and don't know if I'm supposed to pad it out or keep it short.
+23. In Little Learning Machines, how small are the neural networks actually used to train the agents, and how fast can a player realistically train a fairly complex multi-step behavior in the finished game?
+24. Should small teams basically always avoid Unity and Unreal and just build their own engine instead?
+25. If I decide to build my own game engine from scratch instead of using something like Unity or Unreal, how fast can I actually get a barebones version up and running? Also, my team might grow and add new programmers down the line, would that cause any real problems?
+26. How does the composer behind Sword of the Sea actually decide which game projects to say yes to — is it mostly about the paycheck, or something else?
+27. I keep hearing Clair Obscur: Expedition 33 was made with a surprisingly small team — does anyone know roughly how many programmers actually worked on it, and how they pulled off shipping something that scoped without a much bigger engineering team?

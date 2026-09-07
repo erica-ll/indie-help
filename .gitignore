@@ -3,9 +3,12 @@ __pycache__/
 *.pyc
 .DS_Store
 
-# Local experiment-log snapshots from prompt-iteration sessions (0.0/, 1.0/, 2.3/, etc.)
-# Keep tests/test_prompts.txt, tests/answers.txt, tests/rubric.txt tracked — just not the archive folders.
-# tests/tryouts/ is live code (architectures A/B/C2), not an archive snapshot -- keep it tracked.
-tests/*/
+# tests/ is mostly local-only (generated answers, local eval/scoring
+# scripts, precomputed decompositions, experiment-log snapshots like
+# 0.0/, 1.0/, 2.3/, etc.). Only the live tryout architectures and the
+# canonical test-question source files are meant to be tracked/pushed.
 tests/*
 !tests/tryouts/
+!tests/rubric.txt
+!tests/test_prompts.txt
+!tests/test_gt.txt

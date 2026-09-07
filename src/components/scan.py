@@ -44,7 +44,7 @@ def _short_tags(n):
     return ["".join(random.choices(alphabet, k=4)) for _ in range(n)]
 
 
-def scan(question, top_ids, chunk_lookup, n_votes=3, vote_temperature=0.5, model="gpt-4o-mini", prompt_key=PROMPT_KEY):
+def scan(question, top_ids, chunk_lookup, n_votes=1, vote_temperature=0, model="gpt-4o-mini", prompt_key=PROMPT_KEY):
     """Returns a list of {source_file, relevant, content, anchor, topics,
     grounding_rejected, votes} in the same order as top_ids."""
     tags = _short_tags(len(top_ids))
