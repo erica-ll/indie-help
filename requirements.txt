@@ -8,3 +8,5 @@ cohere
 langgraph
 yt-dlp
 youtube-transcript-api
+ragas
+langchain-community==0.4.0
