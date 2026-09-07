@@ -5,3 +5,6 @@ tqdm
 pyyaml
 bm25s
 cohere
+langgraph
+yt-dlp
+youtube-transcript-api
