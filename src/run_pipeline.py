@@ -117,11 +117,18 @@ def _parse_prompts(text):
     return prompts
 
 
-def run_batch(questions_path, output_path, top_k=6, candidate_k=30):
+def run_batch(questions_path, output_path, top_k=6, candidate_k=30, evaluate=False, gt_path=None, eval_out_path=None):
     """Run every question in a plain question-list file (tests/test_prompts.txt
     format) through the full graph end to end, including a live decompose_node call for
     each one. Writes each result to output_path in the same format the earlier function-call-based test
-    runner used."""
+    runner used.
+
+    If evaluate=True, runs the Ragas eval step (components/evaluate.py) as
+    the pipeline's last stage once every answer has been written, scoring
+    output_path against gt_path (defaults to tests/test_gt.txt next to
+    questions_path). Requires the content field above to be untruncated,
+    since Faithfulness needs the full chunk text as evidence, not a
+    150-char preview."""
     prompts = _parse_prompts(Path(questions_path).read_text())
     ids = sorted(prompts)
 
@@ -138,7 +145,7 @@ def run_batch(questions_path, output_path, top_k=6, candidate_k=30):
             findings_block = "\n".join(
                 f"  [{j}] relevant={v['relevant']} | grounding_rejected={v['grounding_rejected']} | source={v['source_file']} | chunk_id={doc_id}\n"
                 f"      topics: {v['topics']!r}\n"
-                f"      content: {(v['content'] or '')[:150]!r}"
+                f"      content: {(v['content'] or '')!r}"
                 for j, (doc_id, v) in enumerate(zip(top_ids, verified), start=1)
             )
 
@@ -159,12 +166,29 @@ def run_batch(questions_path, output_path, top_k=6, candidate_k=30):
 
     print(f"\nWrote {len(ids)} answers to {output_path}")
 
+    if evaluate:
+        import asyncio
+        from components.evaluate import run_eval
+
+        output_path = Path(output_path)
+        gt_path = Path(gt_path) if gt_path else output_path.parent / "test_gt.txt"
+        eval_out_path = Path(eval_out_path) if eval_out_path else output_path.with_suffix(".eval.json")
+        return asyncio.run(run_eval(gt_path, output_path, eval_out_path))
+
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        print(run(sys.argv[1])["answer"])
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("question", nargs="?", help="Run a single question directly instead of the batch file")
+    parser.add_argument("--evaluate", action="store_true", help="Run the Ragas eval step after the batch")
+    args = parser.parse_args()
+
+    if args.question:
+        print(run(args.question)["answer"])
     else:
         run_batch(
             Path(__file__).resolve().parent.parent / "tests" / "test_prompts.txt",
-            Path(__file__).resolve().parent.parent / "tests" / "answers_c1_langgraph_run5.txt",
+            Path(__file__).resolve().parent.parent / "tests" / "answers_langgraph_ragas.txt",
+            evaluate=args.evaluate,
         )
