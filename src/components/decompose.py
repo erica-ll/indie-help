@@ -16,9 +16,7 @@ PROMPT_KEY = "query_decomposition_prompt_v3"
 
 def decompose(question, prompt_key=PROMPT_KEY):
     """Returns a list of 1-3 sub-query strings (see [OUTPUT FORMAT] in the
-    prompt: a JSON array of strings). Also accepts a prompt_key override, so
-    this same function is what you reach for to compare decomposition
-    prompt revisions against each other -- not a separate copy."""
+    prompt: a JSON array of strings)."""
     system_prompt = PROMPTS[prompt_key]
     user_prompt = f"Question: {question}"
 
