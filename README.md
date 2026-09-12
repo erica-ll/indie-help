@@ -1,10 +1,9 @@
 # Indie Help
 
-// 强调langgraph
-
-
-A retrieval-augmented question-answering system that gives indie game developers
-grounded advice from industry professionals. Everything is drawn directly from free GDC talk transcripts and developer post-mortems with proper citations, no hallucinations.
+A LangGraph-orchestrated retrieval-augmented question-answering system that
+gives indie game developers grounded advice from industry professionals.
+Everything is drawn directly from free GDC talk transcripts and developer
+post-mortems with proper citations, no hallucinations.
 
 
 
@@ -33,35 +32,42 @@ tried, measured, and thrown out along the way.
 
 ```
 question
-  │
-  ▼
+   │
+   ▼
 ┌─────────────┐   1-3 atomic, independently-searchable sub-queries
 │  decompose  │   (src/components/decompose.py)
 └─────────────┘
-  │
-  ▼
+   │
+   ▼
 ┌─────────────┐   dense (OpenAI embeddings) + BM25 per sub-query
-│  retrieve   │   → Reciprocal Rank Fusion → Cohere cross-encoder rerank
-└─────────────┘   (src/components/retrieve.py)
-  │
-  ▼
-┌─────────────┐   per-chunk relevance + verbatim extraction, with a
-│    scan     │   hard grounding check against the chunk's real text
-└─────────────┘   (src/components/scan.py)
-  │
-  ▼
+│  retrieve   │◄──┐  → Reciprocal Rank Fusion → Cohere cross-encoder rerank
+└─────────────┘   │  (src/components/retrieve.py)
+   │              │
+   ▼              │ nothing relevant found → retry once,
+┌─────────────┐   │  top_k doubled (capped at candidate_k)
+│    scan     │───┘
+└─────────────┘   per-chunk relevance + verbatim extraction, with a
+   │              hard grounding check against the chunk's real text
+   │ found evidence, or already retried    (src/components/scan.py)
+   ▼
 ┌─────────────┐   composes the final answer from verified findings only,
 │    draft    │   one [Source: file] citation per claim
 └─────────────┘   (src/components/draft.py)
-  │
-  ▼
- answer + citations
+   │
+   ▼
+  answer + citations
 ```
 
+`src/run_pipeline.py`'s `run()` wires these into a **LangGraph** `StateGraph`
+with a conditional edge: if `scan` comes back with
+zero relevant chunks, the graph loops back through `retrieve` once with
+`top_k` doubled (capped at `candidate_k`) before falling through to `draft`.
+This targets a chunk that made it into the candidate pool but got cut by
+the narrow final rerank cutoff before ever reaching `scan` (see
+[DESIGN_LOG § Self-Correcting Retrieval Loop](docs/DESIGN_LOG.md#self-correcting-retrieval-loop-a-langgraph-retry-edge)).
+A plain-function baseline (`run_sequential()`) is kept alongside it with no
+retry, for comparison.
 
-
-
-`src/run_pipeline.py` wires these into a LangGraph.
 Each component is also independently runnable, e.g. `python
 src/components/retrieve.py "some question"`.
 
