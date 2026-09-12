@@ -62,6 +62,27 @@ even when retrieval ran per sub-query from decomposition, so the final
 ordering reflects what the developer actually asked, not just one fragment
 of a decomposed question.
 
+## Self-Correcting Retrieval Loop: A LangGraph Retry Edge
+
+`candidate_k` (30) is how many chunks dense + BM25 each pull before RRF
+fusion and reranking — a reasonably generous pool. `top_k` (6) is Cohere's
+final `top_n` cutoff: however wide the pool is, only 6 chunks ever reach
+`scan`. So the likely miss is a
+correct chunk surviving into the fused pool but getting cut by the
+final `top_k` before `scan` ever sees it.
+
+`run()`'s LangGraph adds a conditional edge for this: after `scan`, if
+nothing came back relevant, it loops back through
+`retrieve` with `top_k` doubled (capped at `candidate_k`)
+before trying `scan` again. `draft()` is unchanged and still abstains
+correctly on its own if the retried pass also comes back empty.
+
+The original `run_sequential()` has no equivalent and is kept as
+the no-retry baseline specifically so to test the improvement by LangGraph orchestration. The retry is capped at one attempt
+(`MAX_SCAN_RETRIES = 1`), to
+catch one under-sized pull without doubling latency and API cost on every
+question that was always going to correctly abstain.
+
 ## Architecture Comparison: A vs B vs C2 vs C
 
 Four different pipeline shapes were built end-to-end and run against the

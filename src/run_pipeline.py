@@ -31,6 +31,10 @@ class PipelineState(TypedDict):
     chunk_lookup: dict # what is this
     verified: list[dict]
     answer: str
+    retry_count: int
+
+MAX_SCAN_RETRIES = 1
+RETRY_TOP_K_MULTIPLIER = 2
 
 def decompose_node(state: PipelineState) -> dict:
     return {"sub_queries": decompose(state["question"])}
@@ -44,15 +48,31 @@ def retrieve_node(state: PipelineState) -> dict:
 def scan_node(state: PipelineState) -> dict:
     return {"verified": scan(state["question"], state["top_ids"], state["chunk_lookup"], n_votes=1, model="gpt-4o")}
 
+def widen_node(state: PipelineState) -> dict:
+    """Widening top_k (capped at candidate_k)
+    gives a chunk that ranked just outside that cutoff a second chance to
+    reach scan before the system concedes and abstains."""
+    return {
+        "top_k": min(state["top_k"] * RETRY_TOP_K_MULTIPLIER, state["candidate_k"]),
+        "retry_count": state["retry_count"] + 1,
+    }
+
+def route_after_scan(state: PipelineState) -> str:
+    if any(v["relevant"] for v in state["verified"]):
+        return "draft"
+    if state["retry_count"] < MAX_SCAN_RETRIES and state["top_k"] < state["candidate_k"]:
+        return "widen"
+    return "draft"  # retries exhausted, or top_k already == candidate_k (nothing left to widen)
+
 def draft_node(state: PipelineState) -> dict:
     return {"answer": draft(state["question"], state["verified"])}
 
 
 def run_sequential(question, top_k=6, candidate_k=30, sub_queries=None, save_intermediate=False, out_dir=None):
-    """Pre-LangGraph plain function orchestration, kept for direct comparison
-    against the graph-based run() -- same components, no graph. scan() is
-    called with n_votes=1, model="gpt-4o" to match tests/run_architecture_c1.py,
-    the script that produced the graded ~8.14 baseline."""
+    """Plain function orchestration: decompose -> retrieve -> scan -> draft,
+    straight through, no retry. scan() is called with n_votes=1,
+    model="gpt-4o" to match tests/run_architecture_c1.py, the script that
+    produced the graded ~8.14 baseline."""
     if save_intermediate:
         if out_dir is None:
             raise ValueError("out_dir is required when save_intermediate=True")
@@ -84,22 +104,30 @@ def run_sequential(question, top_k=6, candidate_k=30, sub_queries=None, save_int
     return {"sub_queries": sub_queries, "top_ids": top_ids, "verified": verified, "answer": answer}
 
 def run(question, top_k=6, candidate_k=30, sub_queries=None, save_intermediate=False, out_dir=None):
+    """Graph-based orchestration. scan -> draft is
+    a conditional edge: if scan finds zero relevant chunks, the graph loops
+    back through retrieve once with a widened top_k (see widen_node)
+    before falling through to draft."""
     # Add checkpoint later
     graph = StateGraph(PipelineState)
     graph.add_node("decompose", decompose_node)
     graph.add_node("retrieve", retrieve_node)
     graph.add_node("scan", scan_node)
+    graph.add_node("widen", widen_node)
     graph.add_node("draft", draft_node)
 
     graph.add_edge(START, "decompose")
     graph.add_edge("decompose", "retrieve")
     graph.add_edge("retrieve", "scan")
-    graph.add_edge("scan", "draft")
+    graph.add_conditional_edges("scan", route_after_scan, {"widen": "widen", "draft": "draft"})
+    graph.add_edge("widen", "retrieve")
     graph.add_edge("draft", END)
 
     app = graph.compile()
 
-    result = app.invoke({"question": question, "top_k": top_k, "candidate_k": candidate_k})
+    result = app.invoke({
+        "question": question, "top_k": top_k, "candidate_k": candidate_k, "retry_count": 0,
+    })
     return result
 
 
