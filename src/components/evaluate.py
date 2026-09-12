@@ -1,22 +1,14 @@
-"""Offline batch evaluation (architecture C): scores a run_pipeline.py
+"""Offline batch evaluation: scores a run_pipeline.py
 run-output file (the "===== Q{n} =====" / "Answer:" format from run_batch)
 against tests/test_gt.txt using Ragas' AnswerCorrectness and Faithfulness.
 
-Faithfulness needs the retrieved contexts as evidence -- these are pulled
+Faithfulness needs the retrieved contexts as evidence, which are pulled
 straight out of the run-output file's scan-step findings block (every chunk
-marked relevant=True). This only works if that file's content field is NOT
-truncated (run_batch's 150-char debug preview truncation must be off), or
-Faithfulness will be judging against sentence fragments instead of full
-evidence.
+marked relevant=True).
 
-reference (from test_gt.txt) keeps its trailing 'Source file: ...' line
-as-is -- the RAG answer is expected to cite its own source too, so that's
-part of what's being graded, not something to strip out.
+Standalone: `python evaluate.py [run_output_path]` scores a run-output file against tests/test_gt.txt.
 
-Standalone: `python evaluate.py [run_output_path]` scores a run-output file
-(defaults to tests/answers_c1_langgraph_run2.txt) against tests/test_gt.txt.
-
-Usage: `python evaluate.py --diagnose 3 [input_path]` prints the statement-level breakdown
+`python evaluate.py --diagnose 3 [input_path]` prints the statement-level breakdown
 behind Q3's scores, straight from ragas' internal NLI/classification calls
 """
 import re
@@ -37,8 +29,6 @@ TESTS_DIR = Path(__file__).resolve().parent.parent.parent / "tests"
 
 
 def _parse_numbered(text):
-    """Parse the '1. content...' / '2. content...' format used by
-    tests/test_prompts.txt and tests/test_gt.txt."""
     entries = re.split(r"\n(?=\d+\.\s)", text.strip())
     parsed = {}
     for entry in entries:
@@ -50,9 +40,6 @@ def _parse_numbered(text):
 
 
 def _parse_run_output(text):
-    """Parse run_pipeline.py's rich '===== Q{n} =====' output format:
-    question, answer, and the content of every relevant=True chunk from the
-    scan-step findings block (used as Faithfulness's retrieved_contexts)."""
     blocks = re.split(r"\n(?=={5} Q\d+ ={5})", text.strip())
     parsed = {}
     for block in blocks:
@@ -93,9 +80,6 @@ def _parse_run_output(text):
 
 
 def load_samples(gt_path, run_output_path):
-    """Aligns test_gt.txt with a run_pipeline.py run-output file by question
-    number. Returns a list of dicts: {id, question, response, reference,
-    retrieved_contexts}."""
     references = _parse_numbered(Path(gt_path).read_text())
     runs = _parse_run_output(Path(run_output_path).read_text())
 
@@ -197,15 +181,10 @@ async def diagnose(
     model="gpt-4o-mini",
     embedding_model="text-embedding-3-small",
 ):
-    """Prints the statement-level breakdown behind one question's scores --
+    """Prints the statement-level breakdown behind one question's scores:
     which statements matched/didn't and why, straight from ragas' internal
     NLI/classification calls (AnswerCorrectness._classify_statements and
-    Faithfulness._create_verdicts -- both private methods, but ascore()
-    only returns the final float, so there's no public way to get this).
-    Use this to tell a real hallucination/retrieval failure apart from a
-    metric artifact (e.g. a short-but-correct abstention scored low against
-    a long GT, or a well-grounded answer misjudged against messy
-    transcript-style source text)."""
+    Faithfulness._create_verdicts)."""
     samples = {s["id"]: s for s in load_samples(gt_path, run_output_path)}
     if question_id not in samples:
         print(f"Q{question_id} not found in {run_output_path} / {gt_path}")

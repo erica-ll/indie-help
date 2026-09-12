@@ -1,8 +1,7 @@
-"""Draft component (architecture C): compose the final answer from chunks
-already verified by scan() -- this call does no extraction or relevance
+"""Draft component: compose the final answer from chunks
+already verified by scan(). This call does no extraction or relevance
 judgment of its own, only composition. The [Source: ...] tag is attached
-here in code from the reliably-known source_file, rather than trusting the
-scan step to have embedded a citation correctly inside its extracted text.
+here in code from the reliably-known source_file.
 
 Standalone: `python draft.py` runs scan.py's output for a question passed as
 an argument through drafting.
