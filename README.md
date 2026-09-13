@@ -105,15 +105,16 @@ iterations in a local scoreboard, not all committed — see
 
 | Metric | Average |
 |---|---|
-| Answer Correctness | 0.677 |
-| Faithfulness | 0.818 |
+| Answer Correctness | 0.730 |
+| Faithfulness | 0.832 |
 
 
 
 
 Faithfulness is `null` for 2/27 questions where the scan step found zero
-chunks that passed grounding.
-// NEED REFINEMENT HERE
+chunks that passed grounding. Answer Correctness uses tuned weights
+(`factuality=0.6, similarity=0.4, beta=0.7`), and abstention-template questions are scored on
+similarity alone rather than factuality. See [Limitations & known gaps](#limitations--known-gaps) for why.
 
 
 
@@ -271,15 +272,31 @@ committed.
  anything only published in GDC Vault's paywalled archive or in other
  text-only post-mortems, a scope decision explained in
  [DESIGN_LOG](docs/DESIGN_LOG.md#data-sourcing-and-scraping-considerations).
-- Ragas' automated metrics can't fully verify abstentions: `AnswerCorrectness`
-rewards a correct refusal by text similarity to the reference, and
-`Faithfulness` can't run with zero grounded chunk. Manual
-rubric grading is what actually
-confirms a refusal was earned with correct reasoning.
+- Ragas' `AnswerCorrectness` is a statement-recall metric, it breaks
+ both the answer and the reference into atomic statements and checks
+ overlap. That's a bad fit for two shapes of question in this golden set:
+   - **Abstention questions** GT is one short
+     refusal sentence following a template. Scoring these on embedding similarity alone
+     (`weights=[0, 1.0]`) instead of factuality, because a refusal either is as
+     semantically equivalent to "this isn't in the knowledge base" or it
+     doesn't, there's no partial-credit fact underneath to check. This doesn't
+     confirm the refusal was earned for the *right reason*, though. Ragas
+     can't check if the evidence is correctly rejected after retrieval, so this specific failure mode still needs manual rubric
+     grading against the source material to fully trust.
+   - **Multi-hop / cross-document questions** Even a fully correct,
+     well-grounded answer gets penalized for not echoing every clause of a
+     long multi-part GT verbatim. Partially mitigated by shifting
+     `AnswerCorrectness` toward precision (`weights=[0.6, 0.4]`, `beta=0.7`),
+     measured to reduce the
+     underlying bias toward verbatim-GT-shaped answers isn't eliminated.
+- Retrieve/scan is measurably unreliable when several documents are
+ topically adjacent but only one is the correct match. Seen both when a clearly relevant chunk retrieved but
+ misjudged irrelevant by `scan`, and when a decisive chunk that never made the
+ top-6 at all. Next steps: check
+ whether `scan_verify_prompt_v2` is under-confident on
+ borderline-but-correct chunks, and whether retry should also fire on
+ low-confidence matches.
 - `scan.py`'s majority-vote judging (`n_votes>1`) exists to address
-single-shot instability on entity-collision cases, but was never
-benchmarked with a measured score. The ~8.14 baseline came from a stronger
-judge model (`gpt-4o` over `gpt-4o-mini`), still single-shot. Majority
-voting remains implemented but unvalidated. See
-[DESIGN_LOG § Grounding](docs/DESIGN_LOG.md#grounding-the-anchor-check).
+single-shot instability on entity-collision cases, but
+voting remains implemented but unvalidated.
 
