@@ -27,6 +27,12 @@ from ragas.metrics.collections import AnswerCorrectness, Faithfulness
 
 TESTS_DIR = Path(__file__).resolve().parent.parent.parent / "tests"
 
+# GT for genuine abstention/negative-control questions (Q11/12/26/27) is just
+# one templated sentence. Similarity alone is both more stable and more
+# appropriate for "did it decline gracefully," so these get scored on
+# similarity only; every other question keeps the caller's weights/beta.
+ABSTENTION_TEMPLATE = "Sorry, there is no specific record regarding this issue in the current knowledge base."
+
 
 def _parse_numbered(text):
     entries = re.split(r"\n(?=\d+\.\s)", text.strip())
@@ -106,6 +112,8 @@ async def run_eval(
     out_path=None,
     model="gpt-4o-mini",
     embedding_model="text-embedding-3-small",
+    weights=(0.6, 0.4),
+    beta=0.7,
 ):
     """Scores every aligned sample with AnswerCorrectness (always) and
     Faithfulness (only for samples that have retrieved_contexts -- e.g. the
@@ -117,17 +125,19 @@ async def run_eval(
     # llm_factory defaults to max_tokens=1024 for structured output, which
     # truncates the statement-level classification JSON for longer GT/RAG
     # answers (see ragas/llms/base.py) -- raised to avoid IncompleteOutputException.
-    llm = llm_factory(model, client=client, max_tokens=4096)
+    llm = llm_factory(model, client=client, max_tokens=4096, temperature=0)
     embeddings = embedding_factory(
         "openai", model=embedding_model, client=client, interface="modern"
     )
 
-    answer_correctness = AnswerCorrectness(llm=llm, embeddings=embeddings)
+    answer_correctness = AnswerCorrectness(llm=llm, embeddings=embeddings, weights=list(weights), beta=beta)
+    answer_correctness_abstention = AnswerCorrectness(llm=llm, embeddings=embeddings, weights=[0.0, 1.0])
     faithfulness = Faithfulness(llm=llm)
 
     results = []
     for sample in samples:
-        ac_result = await answer_correctness.ascore(
+        scorer = answer_correctness_abstention if sample["reference"].startswith(ABSTENTION_TEMPLATE) else answer_correctness
+        ac_result = await scorer.ascore(
             user_input=sample["question"],
             response=sample["response"],
             reference=sample["reference"],
@@ -192,10 +202,12 @@ async def diagnose(
     sample = samples[question_id]
 
     client = AsyncOpenAI()
-    llm = llm_factory(model, client=client, max_tokens=4096)
+    llm = llm_factory(model, client=client, max_tokens=4096, temperature=0)
     embeddings = embedding_factory("openai", model=embedding_model, client=client, interface="modern")
 
-    ac = AnswerCorrectness(llm=llm, embeddings=embeddings)
+    is_abstention = sample["reference"].startswith(ABSTENTION_TEMPLATE)
+    ac = AnswerCorrectness(llm=llm, embeddings=embeddings, weights=[0.0, 1.0] if is_abstention else [0.6, 0.4],
+                            beta=1.0 if is_abstention else 0.7)
     response_statements = await ac._generate_statements(sample["question"], sample["response"])
     reference_statements = await ac._generate_statements(sample["question"], sample["reference"])
     classification = await ac._classify_statements(sample["question"], response_statements, reference_statements)
@@ -204,6 +216,8 @@ async def diagnose(
     weighted = (factuality * ac.weights[0] + similarity * ac.weights[1]) / sum(ac.weights)
 
     print(f"===== Q{question_id} diagnosis =====")
+    if is_abstention:
+        print("(abstention-template GT -- run_eval scores this on similarity only; factuality shown below is informational)")
     print(f"\n--- AnswerCorrectness: factuality_f1={factuality:.3f} similarity={similarity:.3f} weighted={weighted:.3f} ---")
     print(f"\nTP ({len(classification.TP)}) -- response statements supported by the reference:")
     for s in classification.TP:
